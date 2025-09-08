@@ -1,2 +1,2 @@
-# api-finanzas
-Servicios enfocados a tratamientos de archivos, entre otros para el control de las finanzas personales
+# api-marangatu
+API dedicada a servicios a utilizarse con Marangatu
