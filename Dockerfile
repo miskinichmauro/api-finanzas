@@ -1,5 +1,5 @@
 # 1. Etapa de compilación
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
 # Copiamos el archivo de solución y los proyectos (para cachear dependencias)
@@ -11,7 +11,7 @@ RUN dotnet restore
 RUN dotnet publish src/ApiFinanzas.WebApi/ApiFinanzas.WebApi.csproj -c Release -o deploy
 
 # 2. Etapa runtime
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 
