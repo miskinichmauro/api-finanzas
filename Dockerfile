@@ -13,7 +13,7 @@ RUN dotnet publish src/ApiFinanzas.WebApi/ApiFinanzas.WebApi.csproj -c Release -
 # 2. Etapa runtime
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/out ./
+COPY --from=build /app/deploy ./
 
 # Render expone el puerto por default en $PORT
 ENV ASPNETCORE_URLS=http://+:$PORT
