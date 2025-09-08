@@ -1,8 +1,8 @@
-using ApiMarangatu.Domain.Dto.Response;
+using ApiFinanzas.Domain.Dto.Response;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 
-namespace ApiMarangatu.Application.XmlProcessing;
+namespace ApiFinanzas.Application.XmlProcessing;
 
 public class ProcessXmlToExcelCommand : IRequest<ProcessXmlToExcelResponse> 
 {

@@ -1,11 +1,11 @@
 using System.Reflection;
-using ApiMarangatu.WebApi.Endpoints;
+using ApiFinanzas.WebApi.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMediatR(cfg =>
 {
-    cfg.RegisterServicesFromAssembly(Assembly.Load("ApiMarangatu.Application"));
+    cfg.RegisterServicesFromAssembly(Assembly.Load("ApiFinanzas.Application"));
 });
 
 var app = builder.Build();
