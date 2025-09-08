@@ -1,8 +1,8 @@
-using ApiMarangatu.Application.XmlProcessing;
+using ApiFinanzas.Application.XmlProcessing;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiMarangatu.WebApi.Endpoints;
+namespace ApiFinanzas.WebApi.Endpoints;
 
 public static class XmlProcessingEndpoint
 {

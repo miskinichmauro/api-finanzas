@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\ApiMarangatu.Application\ApiMarangatu.Application.csproj" />
-    <ProjectReference Include="..\ApiMarangatu.Domain\ApiMarangatu.Domain.csproj" />
+    <ProjectReference Include="..\ApiFinanzas.Application\ApiFinanzas.Application.csproj" />
+    <ProjectReference Include="..\ApiFinanzas.Domain\ApiFinanzas.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

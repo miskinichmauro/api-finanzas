@@ -5,13 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiMarangatu.WebApi", "src\ApiMarangatu.WebApi\ApiMarangatu.WebApi.csproj", "{9639FBA7-70EC-4DBC-B894-B241603FC74C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiFinanzas.WebApi", "src\ApiFinanzas.WebApi\ApiFinanzas.WebApi.csproj", "{9639FBA7-70EC-4DBC-B894-B241603FC74C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiMarangatu.Application", "src\ApiMarangatu.Application\ApiMarangatu.Application.csproj", "{40A76CDF-711C-46E0-96E2-5C15098D21EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiFinanzas.Application", "src\ApiFinanzas.Application\ApiFinanzas.Application.csproj", "{40A76CDF-711C-46E0-96E2-5C15098D21EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiMarangatu.Domain", "src\ApiMarangatu.Domain\ApiMarangatu.Domain.csproj", "{D0DA2C0C-DE6B-4C07-BC12-29CDE7074122}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiFinanzas.Domain", "src\ApiFinanzas.Domain\ApiFinanzas.Domain.csproj", "{D0DA2C0C-DE6B-4C07-BC12-29CDE7074122}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiMarangatu.Infrastructure", "src\ApiMarangatu.Infrastructure\ApiMarangatu.Infrastructure.csproj", "{291C2D31-6E6C-45BD-B2B6-8563A3364DD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiFinanzas.Infrastructure", "src\ApiFinanzas.Infrastructure\ApiFinanzas.Infrastructure.csproj", "{291C2D31-6E6C-45BD-B2B6-8563A3364DD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-namespace ApiMarangatu.Domain.Dto.Response;
+namespace ApiFinanzas.Domain.Dto.Response;
 
 public class ProcessXmlToExcelResponse
 {
