@@ -126,7 +126,7 @@ public class ProcessXmlToExcelCommandHandler : IRequestHandler<ProcessXmlToExcel
         return new ProcessXmlToExcelResponse
         {
             Excel = ms.ToArray(),
-            NombreComercio = $"{titulo} - {subTitulo}"
+            NombreArchivo = $"{titulo} - {subTitulo}"
         };
     }
 }
