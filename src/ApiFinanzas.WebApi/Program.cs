@@ -1,15 +1,27 @@
-using System.Reflection;
 using ApiFinanzas.WebApi.Endpoints;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMediatR(cfg =>
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
 {
-    cfg.RegisterServicesFromAssembly(Assembly.Load("ApiFinanzas.Application"));
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Finanzas", Version = "v1" });
 });
 
 var app = builder.Build();
 
-app.AddXmlProcessingEndpoints();
+if (app.Environment.IsDevelopment())
+{
+    app.AddXmlProcessingEndpoints();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Finanzas v1");
+        c.RoutePrefix = string.Empty; // Acceso a Swagger UI en la raíz
+    });
+}
 
-await app.RunAsync();
+app.MapGet("/", () => "¡Bienvenido a la API de Finanzas!");
+
+app.Run();
