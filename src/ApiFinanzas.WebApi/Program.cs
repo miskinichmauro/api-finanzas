@@ -11,14 +11,14 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+app.AddXmlProcessingEndpoints();
 if (app.Environment.IsDevelopment())
 {
-    app.AddXmlProcessingEndpoints();
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Finanzas v1");
-        c.RoutePrefix = string.Empty; // Acceso a Swagger UI en la raíz
+        c.RoutePrefix = string.Empty;
     });
 }
 
