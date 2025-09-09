@@ -7,6 +7,16 @@ builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssembly(Assembly.Load("ApiFinanzas.Application"));
 });
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 
 var app = builder.Build();
 
@@ -15,5 +25,6 @@ if (!app.Environment.IsDevelopment())
 {
     app.MapGet("/", () => "¡Bienvenido a la API de Finanzas!");
 }
+app.UseCors();
 
 await app.RunAsync();
