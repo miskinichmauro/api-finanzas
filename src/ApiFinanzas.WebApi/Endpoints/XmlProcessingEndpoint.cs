@@ -31,6 +31,5 @@ public static class XmlProcessingEndpoint
             contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             fileDownloadName: $"{result.NombreComercio}.xlsx"
         );
-
     }
 }
