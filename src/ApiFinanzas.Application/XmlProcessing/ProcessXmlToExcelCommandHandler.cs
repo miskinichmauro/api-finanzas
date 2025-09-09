@@ -20,7 +20,7 @@ public class ProcessXmlToExcelCommandHandler : IRequestHandler<ProcessXmlToExcel
 
         var inicioColumnas = 2;
         var inicioFilas = 2;
-        var finColumnas = 8;
+        var finColumnas = 7;
         var finFilas = 0;
 
         var xdoc = XDocument.Parse(xmlContent);
@@ -72,7 +72,7 @@ public class ProcessXmlToExcelCommandHandler : IRequestHandler<ProcessXmlToExcel
 
         // Encabezados
         var inicioFilasEncabezados = inicioFilas + 2;
-        var inicioColumnasEncabezados = 3;
+        var inicioColumnasEncabezados = 2;
         ws.Cell(inicioFilasEncabezados, inicioColumnasEncabezados + 0).Value = "Nro";
         ws.Cell(inicioFilasEncabezados, inicioColumnasEncabezados + 1).Value = "Descripción";
         ws.Cell(inicioFilasEncabezados, inicioColumnasEncabezados + 2).Value = "Cantidad";
@@ -84,6 +84,8 @@ public class ProcessXmlToExcelCommandHandler : IRequestHandler<ProcessXmlToExcel
         rangoEncabezados.Style.Alignment.SetVertical(XLAlignmentVerticalValues.Center);
 
         var row = 5;
+
+        
         // Cuerpo
         foreach (var item in items)
         {
@@ -91,13 +93,13 @@ public class ProcessXmlToExcelCommandHandler : IRequestHandler<ProcessXmlToExcel
             ws.Cell(row, inicioFilasEncabezados++).Value = item.Nro;
             ws.Cell(row, inicioFilasEncabezados++).Value = item.Descripcion;
 
-            ws.Cell(row, inicioFilasEncabezados++).Value = decimal.TryParse(item.Cantidad.Replace('.', ','), out var cant) ? cant : 0;
+            ws.Cell(row, inicioFilasEncabezados++).Value = decimal.TryParse(item.Cantidad, NumberStyles.Any, CultureInfo.InvariantCulture, out var cant) ? cant : 0;
             ws.Cell(row, inicioFilasEncabezados).Style.NumberFormat.Format = numericoConDecimales;
 
-            ws.Cell(row, inicioFilasEncabezados++).Value = decimal.TryParse(item.PrecioUnitario.Replace('.', ','), out var pu) ? pu : 0;
+            ws.Cell(row, inicioFilasEncabezados++).Value = decimal.TryParse(item.PrecioUnitario, NumberStyles.Any, CultureInfo.InvariantCulture, out var pu) ? pu : 0;
             ws.Cell(row, inicioFilasEncabezados).Style.NumberFormat.Format = numericoConDecimales;
 
-            ws.Cell(row, inicioFilasEncabezados++).Value = decimal.TryParse(item.Total.Replace('.', ','), out var tot) ? tot : 0;
+            ws.Cell(row, inicioFilasEncabezados++).Value = decimal.TryParse(item.Total, NumberStyles.Any, CultureInfo.InvariantCulture, out var tot) ? tot : 0;
             ws.Cell(row, inicioFilasEncabezados).Style.NumberFormat.Format = numericoConDecimales;
 
             row++;
@@ -119,6 +121,9 @@ public class ProcessXmlToExcelCommandHandler : IRequestHandler<ProcessXmlToExcel
 
         var rangoItems = ws.Range(5, inicioColumnasEncabezados + 1, row - 1, finColumnas);
         rangoItems.Style.Font.Bold = false;
+
+        // Al final aumentamos el ancho de la columna "Paga"
+        ws.Column(inicioColumnasEncabezados + 5).Width = 15;
 
         using var ms = new MemoryStream();
         workbook.SaveAs(ms);
