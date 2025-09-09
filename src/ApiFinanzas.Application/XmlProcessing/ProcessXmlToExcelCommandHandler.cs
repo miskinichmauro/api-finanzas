@@ -108,7 +108,7 @@ public class ProcessXmlToExcelCommandHandler : IRequestHandler<ProcessXmlToExcel
 
         // Total final
         ws.Cell(row, finColumnas - 2).Value = "TOTAL:";
-        ws.Cell(row, finColumnas - 1).Value = decimal.TryParse(totalGral.Replace('.',','), out var totalG) ? totalG : 0;
+        ws.Cell(row, finColumnas - 1).Value = decimal.TryParse(totalGral, NumberStyles.Any, CultureInfo.InvariantCulture, out var totalG) ? totalG : 0;
         ws.Cell(row, finColumnas - 1).Style.NumberFormat.Format = numericoConDecimales;
 
         // Estilo general
