@@ -29,7 +29,7 @@ public static class XmlProcessingEndpoint
         return Results.File(
             fileContents: result.Excel,
             contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            fileDownloadName: $"{result.NombreComercio}.xlsx"
+            fileDownloadName: $"{result.NombreArchivo}.xlsx"
         );
     }
 }
